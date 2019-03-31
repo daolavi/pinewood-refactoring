@@ -1,4 +1,7 @@
-﻿namespace PinnacleSample
+﻿using PinnacleSample.Controllers.PartInvoiceController;
+using PinnacleSample.Models.Request;
+
+namespace PinnacleSample
 {
     public class PinnacleClient
     {

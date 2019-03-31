@@ -1,8 +1,9 @@
-﻿using System.Configuration;
+﻿using PinnacleSample.Entities;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace PinnacleSample
+namespace PinnacleSample.Repositories.CustomerRepository
 {
     public class CustomerRepositoryDB
     {

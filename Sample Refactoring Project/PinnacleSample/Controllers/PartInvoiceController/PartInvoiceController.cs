@@ -1,4 +1,9 @@
-﻿namespace PinnacleSample
+﻿using PinnacleSample.Entities;
+using PinnacleSample.Models.Request;
+using PinnacleSample.Repositories.CustomerRepository;
+using PinnacleSample.Repositories.PartInvoiceRepository;
+
+namespace PinnacleSample.Controllers.PartInvoiceController
 {
     public class PartInvoiceController
     {

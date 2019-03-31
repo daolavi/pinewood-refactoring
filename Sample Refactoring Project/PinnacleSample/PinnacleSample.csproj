@@ -41,15 +41,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreatePartInvoiceResult.cs" />
-    <Compile Include="Customer.cs" />
-    <Compile Include="CustomerRepositoryDB.cs" />
+    <Compile Include="Controllers\PartInvoiceController\IPartInvoiceController.cs" />
+    <Compile Include="Models\Request\CreatePartInvoiceResult.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Repositories\CustomerRepository\CustomerRepositoryDB.cs" />
+    <Compile Include="Infrastructure\ServiceLocator\IServiceLocator.cs" />
+    <Compile Include="Infrastructure\ServiceLocator\ServiceLocator.cs" />
     <Compile Include="PartAvailabilityService.cs" />
-    <Compile Include="PartInvoice.cs" />
-    <Compile Include="PartInvoiceController.cs" />
-    <Compile Include="PartInvoiceRepositoryDB.cs" />
+    <Compile Include="Entities\PartInvoice.cs" />
+    <Compile Include="Controllers\PartInvoiceController\PartInvoiceController.cs" />
+    <Compile Include="Repositories\PartInvoiceRepository\PartInvoiceRepositoryDB.cs" />
     <Compile Include="PinnacleClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Response\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
