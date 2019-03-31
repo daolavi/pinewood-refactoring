@@ -5,7 +5,7 @@ using PinnacleSample.Repositories.PartInvoiceRepository;
 
 namespace PinnacleSample.Controllers.PartInvoiceController
 {
-    public class PartInvoiceController
+    public class PartInvoiceController : IPartInvoiceController
     {
         public CreatePartInvoiceResult CreatePartInvoice(string stockCode, int quantity, string customerName)
         {

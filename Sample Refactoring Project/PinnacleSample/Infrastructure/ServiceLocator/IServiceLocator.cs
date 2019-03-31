@@ -2,6 +2,6 @@
 {
     public interface IServiceLocator
     {
-        T GetService<T>();
+        T Resolve<T>();
     }
 }

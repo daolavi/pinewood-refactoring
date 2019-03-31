@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace PinnacleSample.Repositories.PartInvoiceRepository
 {
-    public class PartInvoiceRepositoryDB
+    public class PartInvoiceRepositoryDB : IPartInvoiceRepositoryDB
     {
         public void Add(PartInvoice invoice)
         {

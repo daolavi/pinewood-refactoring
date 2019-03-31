@@ -50,6 +50,8 @@
     <Compile Include="PartAvailabilityService.cs" />
     <Compile Include="Entities\PartInvoice.cs" />
     <Compile Include="Controllers\PartInvoiceController\PartInvoiceController.cs" />
+    <Compile Include="Repositories\CustomerRepository\ICustomerRepositoryDB.cs" />
+    <Compile Include="Repositories\PartInvoiceRepository\IPartInvoiceRepositoryDB.cs" />
     <Compile Include="Repositories\PartInvoiceRepository\PartInvoiceRepositoryDB.cs" />
     <Compile Include="PinnacleClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
