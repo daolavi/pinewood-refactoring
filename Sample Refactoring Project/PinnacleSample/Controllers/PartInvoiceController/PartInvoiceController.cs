@@ -1,5 +1,5 @@
 ﻿using PinnacleSample.Entities;
-using PinnacleSample.Infrastructure.ServiceLocator;
+using PinnacleSample.Infrastructure.IoC;
 using PinnacleSample.Models.Response;
 using PinnacleSample.Repositories.CustomerRepository;
 using PinnacleSample.Repositories.PartInvoiceRepository;
@@ -12,15 +12,18 @@ namespace PinnacleSample.Controllers.PartInvoiceController
 
         private readonly IPartInvoiceRepositoryDB __PartInvoiceRepositoryDB;
 
-        public PartInvoiceController()
+        private readonly Services.PartAvailabilityService.IPartAvailabilityService __IPartAvailabilityService;
+
+        public PartInvoiceController(IIoC ioc)
         {
-            __CustomerRepositoryDB = ServiceLocator.Resolver().Resolve<ICustomerRepositoryDB>();
-            __PartInvoiceRepositoryDB = ServiceLocator.Resolver().Resolve<IPartInvoiceRepositoryDB>();
+            __CustomerRepositoryDB = ioc.Resolve<ICustomerRepositoryDB>();
+            __PartInvoiceRepositoryDB = ioc.Resolve<IPartInvoiceRepositoryDB>();
+            __IPartAvailabilityService = ioc.Resolve<Services.PartAvailabilityService.IPartAvailabilityService>();
         }
 
         public CreatePartInvoiceResult CreatePartInvoice(string stockCode, int quantity, string customerName)
-        {
-            if (string.IsNullOrEmpty(stockCode))
+        { 
+            if (string.IsNullOrEmpty(stockCode) || string.IsNullOrEmpty(customerName))
             {
                 return new CreatePartInvoiceResult(false);
             }
@@ -31,12 +34,12 @@ namespace PinnacleSample.Controllers.PartInvoiceController
             }
             
             Customer _Customer = __CustomerRepositoryDB.GetByName(customerName);
-            if (_Customer.ID <= 0)
+            if (_Customer == null || _Customer.ID <= 0)
             {
                 return new CreatePartInvoiceResult(false);
             }
 
-            int _Availability = GetAvailability(stockCode);
+            int _Availability = __IPartAvailabilityService.GetAvailability(stockCode);
             if (_Availability <= 0)
             {
                 return new CreatePartInvoiceResult(false);
@@ -52,14 +55,6 @@ namespace PinnacleSample.Controllers.PartInvoiceController
             __PartInvoiceRepositoryDB.Add(_PartInvoice);
 
             return new CreatePartInvoiceResult(true);
-        }
-
-        public int GetAvailability(string stockCode)
-        {
-            using (PartAvailabilityServiceClient _PartAvailabilityService = new PartAvailabilityServiceClient())
-            {
-                return _PartAvailabilityService.GetAvailability(stockCode);
-            }
         }
     }
 }

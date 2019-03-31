@@ -1,5 +1,6 @@
 ﻿using PinnacleSample.Controllers.PartInvoiceController;
-using PinnacleSample.Infrastructure.ServiceLocator;
+using PinnacleSample.Extensions;
+using PinnacleSample.Infrastructure.IoC;
 using PinnacleSample.Models.Response;
 
 namespace PinnacleSample
@@ -10,7 +11,10 @@ namespace PinnacleSample
 
         public PinnacleClient()
         {
-            __Controller = ServiceLocator.Resolver().Resolve<IPartInvoiceController>();
+            var _Ioc = new IoC();
+            _Ioc.RegisterApplicationServices();
+
+            __Controller = new PartInvoiceController(_Ioc);
         }
 
         public CreatePartInvoiceResult CreatePartInvoice(string stockCode, int quantity, string customerName)

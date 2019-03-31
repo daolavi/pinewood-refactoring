@@ -42,11 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\PartInvoiceController\IPartInvoiceController.cs" />
+    <Compile Include="Extensions\IoCExtension.cs" />
     <Compile Include="Models\Response\CreatePartInvoiceResult.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Repositories\CustomerRepository\CustomerRepositoryDB.cs" />
-    <Compile Include="Infrastructure\ServiceLocator\IServiceLocator.cs" />
-    <Compile Include="Infrastructure\ServiceLocator\ServiceLocator.cs" />
+    <Compile Include="Infrastructure\IoC\IIoC.cs" />
+    <Compile Include="Infrastructure\IoC\IoC.cs" />
     <Compile Include="PartAvailabilityService.cs" />
     <Compile Include="Entities\PartInvoice.cs" />
     <Compile Include="Controllers\PartInvoiceController\PartInvoiceController.cs" />
@@ -55,6 +56,8 @@
     <Compile Include="Repositories\PartInvoiceRepository\PartInvoiceRepositoryDB.cs" />
     <Compile Include="PinnacleClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\PartAvailabilityService\IPartAvailabilityService.cs" />
+    <Compile Include="Services\PartAvailabilityService\PartAvailabilityService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
