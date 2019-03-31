@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\PartInvoiceController\IPartInvoiceController.cs" />
-    <Compile Include="Models\Request\CreatePartInvoiceResult.cs" />
+    <Compile Include="Models\Response\CreatePartInvoiceResult.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Repositories\CustomerRepository\CustomerRepositoryDB.cs" />
     <Compile Include="Infrastructure\ServiceLocator\IServiceLocator.cs" />
@@ -56,9 +56,7 @@
     <Compile Include="PinnacleClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\Response\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

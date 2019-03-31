@@ -8,7 +8,7 @@ namespace PinnacleSample.Infrastructure.ServiceLocator
 {
     public class ServiceLocator : IServiceLocator
     {
-        private static Lazy<ServiceLocator> __Resolver = new Lazy<ServiceLocator>(() => new ServiceLocator());
+        private static readonly Lazy<ServiceLocator> __Instance = new Lazy<ServiceLocator>(() => new ServiceLocator());
 
         private readonly IDictionary<object, object> __Container;
 
@@ -20,6 +20,11 @@ namespace PinnacleSample.Infrastructure.ServiceLocator
                 { typeof(ICustomerRepositoryDB), new CustomerRepositoryDB() },
                 { typeof(IPartInvoiceRepositoryDB), new PartInvoiceRepositoryDB() }
             };
+        }
+
+        public static ServiceLocator Resolver()
+        {
+            return __Instance.Value;
         }
 
         public T Resolve<T>()

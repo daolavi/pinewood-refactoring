@@ -1,4 +1,4 @@
-﻿namespace PinnacleSample.Models.Request
+﻿namespace PinnacleSample.Models.Response
 {
     public class CreatePartInvoiceResult
     {
