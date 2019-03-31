@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace PinnacleSample.Infrastructure.IoC
 {
+    /**
+     * The implementation for services in original project coupled tightly. So, it was difficult to have unit tests.
+     * PinnacleSample.Infrastructure.IoC is a simple implementation, following Dependency Inversion Principle to decouple services.
+     * **/
     public class IoC : IIoC
     {
         private static IDictionary<object, object> __Container;

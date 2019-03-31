@@ -6,6 +6,9 @@ namespace PinnacleSample.Extensions
 {
     public static class IoCExtension
     {
+        /**
+         * Register services to IOC
+         * **/
         public static void RegisterApplicationServices(this IIoC ioc)
         {
             ioc.Register<ICustomerRepositoryDB>()

@@ -11,6 +11,7 @@ namespace PinnacleSample
 
         public PinnacleClient()
         {
+            // Register all services using in whole application to IOC.
             var _Ioc = new IoC();
             _Ioc.RegisterApplicationServices();
 
