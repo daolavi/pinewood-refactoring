@@ -171,7 +171,7 @@ namespace PinnacleSample.Tests
         }
 
         [TestMethod]
-        public void PartInvoiceControllerTests_CreatePartInvoice_Susscess()
+        public void PartInvoiceControllerTests_CreatePartInvoice_Success()
         {
             var ioc = new Mock<IIoC>();
 
